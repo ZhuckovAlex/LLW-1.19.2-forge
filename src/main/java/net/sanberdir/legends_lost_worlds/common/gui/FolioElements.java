@@ -7,6 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 public class FolioElements extends Screen {
+
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation("legends_lost_worlds", "textures/gui/gui_research_back_1.png");
     public FolioElements(Component component) {
         super(component);
