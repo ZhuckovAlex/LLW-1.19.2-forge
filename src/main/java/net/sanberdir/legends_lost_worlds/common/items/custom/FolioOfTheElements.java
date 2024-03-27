@@ -1,5 +1,6 @@
 package net.sanberdir.legends_lost_worlds.common.items.custom;
 
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -17,7 +18,9 @@ public class FolioOfTheElements extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
-        Minecraft.getInstance().setScreen(new FolioElements(Component.literal("Achievements")));
+        if (Minecraft.getInstance().screen == null) {
+            Minecraft.getInstance().setScreen(new FolioElements(Component.literal("Achievements")));
+        }
         return super.use(level, player, interactionHand);
     }
 
