@@ -14,7 +14,7 @@ public class InitItemsLLW {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, LLW.MOD_ID);
     public static final RegistryObject<Item> FOLIO_OF_THE_ELEMENTS = ITEMS.register("folio_of_the_elements",
-            () -> new FolioOfTheElements(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE)));
+            () -> new FolioOfTheElements(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).stacksTo(1)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
