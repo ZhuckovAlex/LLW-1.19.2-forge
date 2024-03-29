@@ -12,39 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FolioElements extends Screen {
-    private static final int WINDOW_WIDTH = 256;
-    private static final int WINDOW_HEIGHT = 230;
+    // Textures
     private static final ResourceLocation WINDOW_TEXTURE = new ResourceLocation(LLW.MOD_ID, "textures/gui/gui_research.png");
     private static final ResourceLocation INSIDE_TEXTURE = new ResourceLocation(LLW.MOD_ID, "textures/gui/gui_research_back_1.png");
-    private static int textureX, textureY;
+    // Window
+    public static final int WINDOW_WIDTH = 256;
+    public static final int WINDOW_HEIGHT = 230;
+    public static int screenCenterX, screenCenterY;
+    private int textureX, textureY;
+    // Quests
     private static final List<Quests> quests = new ArrayList<>();
-
     public FolioElements(Component component) {
         super(component);
-    }
-    @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float delta) {
-        super.render(poseStack, mouseX, mouseY, delta);
-        final int xPos = (this.width - WINDOW_WIDTH) / 2;
-        final int yPos = (this.height - WINDOW_HEIGHT) / 2;
-
-        this.renderBackground(poseStack);
-
-        assert minecraft != null;
-        double scale = minecraft.getWindow().getGuiScale();
-        int scissorX = (int) (xPos * scale);
-        int scissorY = (int) (minecraft.getWindow().getScreenHeight() - (yPos + WINDOW_HEIGHT) * scale);
-        int scissorWidth = (int) (WINDOW_WIDTH * scale);
-        int scissorHeight = (int) (WINDOW_HEIGHT * scale);
-
-
-        renderInside(poseStack, xPos, yPos, scissorX, scissorY, scissorWidth, scissorHeight);
-
-        for (Quests quests1: quests){
-            quests1.renderQuest(poseStack, xPos, yPos, textureX, textureY, scissorX, scissorY, scissorWidth, scissorHeight);
-        }
-
-        renderWindow(poseStack, xPos, yPos);
     }
     @Override
     public void onClose() {
@@ -54,21 +33,47 @@ public class FolioElements extends Screen {
     @Override
     protected void init() {
         initQuests();
+
+        screenCenterX = (this.width - WINDOW_WIDTH) / 2;
+        screenCenterY = (this.height - WINDOW_HEIGHT) / 2;
         super.init();
     }
+    @Override
+    public void render(PoseStack poseStack, int mouseX, int mouseY, float delta) {
+        super.render(poseStack, mouseX, mouseY, delta);
 
-    private void renderWindow(PoseStack poseStack, int xPox, int yPox)
+        this.renderBackground(poseStack);
+
+        // the calculation of scissor
+        assert minecraft != null;
+        double scale = minecraft.getWindow().getGuiScale();
+        int scissorX = (int) (screenCenterX * scale);
+        int scissorY = (int) (minecraft.getWindow().getScreenHeight() - (screenCenterY + WINDOW_HEIGHT) * scale);
+        int scissorWidth = (int) (WINDOW_WIDTH * scale);
+        int scissorHeight = (int) (WINDOW_HEIGHT * scale);
+
+
+        // Renders
+        renderInside(poseStack, scissorX, scissorY, scissorWidth, scissorHeight);
+
+        for (Quests quests1: quests){
+            quests1.renderQuest(poseStack, screenCenterX, screenCenterY, textureX, textureY, scissorX, scissorY, scissorWidth, scissorHeight);
+        }
+
+        renderWindow(poseStack);
+    }
+    private void renderWindow(PoseStack poseStack)
     {
         RenderSystem.enableBlend();
         RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
-        blit(poseStack, xPox, yPox, 0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        blit(poseStack, screenCenterX, screenCenterY, 0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
         RenderSystem.disableBlend();
     }
-    private void renderInside(PoseStack poseStack, int xPos, int yPos, int scissorX, int scissorY, int scissorWidth, int scissorHeight)
+    private void renderInside(PoseStack poseStack, int scissorX, int scissorY, int scissorWidth, int scissorHeight)
     {
         RenderSystem.enableScissor(scissorX, scissorY, scissorWidth, scissorHeight);
         RenderSystem.setShaderTexture(0, INSIDE_TEXTURE);
-        blit(poseStack, (xPos - WINDOW_WIDTH) + textureX, (yPos - WINDOW_HEIGHT) + textureY, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_WIDTH * 3, WINDOW_HEIGHT * 3);
+        blit(poseStack, (screenCenterX - WINDOW_WIDTH) + textureX, (screenCenterY - WINDOW_HEIGHT) + textureY, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_WIDTH * 3, WINDOW_HEIGHT * 3);
         RenderSystem.disableScissor();
     }
     @Override
@@ -84,20 +89,9 @@ public class FolioElements extends Screen {
 
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
     }
-    private static final ResourceLocation QUEST_ICON_TEXTURE = new ResourceLocation(LLW.MOD_ID, "textures/item/folio_of_the_elements.png");
-
     private void initQuests()
     {
-        quests.add(new Quests(QUEST_ICON_TEXTURE));
-    }
-
-    public static int getWindowWidth()
-    {
-        return WINDOW_WIDTH;
-    }
-
-    public static int getWindowHeight()
-    {
-        return WINDOW_HEIGHT;
+        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/item/folio_of_the_elements.png"), 0,0));
+        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/item/focusing_lens.png"), 0,+40));
     }
 }
