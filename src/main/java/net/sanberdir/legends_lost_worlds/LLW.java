@@ -23,6 +23,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sanberdir.legends_lost_worlds.common.blocks.InitBlocksLLW;
 import net.sanberdir.legends_lost_worlds.common.items.InitItemsLLW;
+import net.sanberdir.legends_lost_worlds.common.sounds.CustomSoundEvents;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -50,7 +51,7 @@ public class LLW
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
-
+        CustomSoundEvents.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }

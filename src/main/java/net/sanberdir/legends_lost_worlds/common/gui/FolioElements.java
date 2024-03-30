@@ -91,7 +91,10 @@ public class FolioElements extends Screen {
     }
     private void initQuests()
     {
-        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/item/folio_of_the_elements.png"), 0,0));
-        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/item/focusing_lens.png"), 0,+40));
+        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/folio_of_the_elements.png"), 0,0));
+        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), 0,+40));
+        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), 0,-40));
+        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), +40,0));
+        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), -40,0));
     }
 }

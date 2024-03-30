@@ -4,15 +4,22 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sanberdir.legends_lost_worlds.LLW;
+import net.sanberdir.legends_lost_worlds.client.ModCreativeTab;
+import net.sanberdir.legends_lost_worlds.common.blocks.custom.MoonTear;
 import net.sanberdir.legends_lost_worlds.common.items.InitItemsLLW;
+import net.sanberdir.legends_lost_worlds.common.sounds.CustomSoundEvents;
 
 import java.util.function.Supplier;
 
@@ -20,7 +27,11 @@ public class InitBlocksLLW {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, LLW.MOD_ID);
 
-
+    public static final RegistryObject<Block> MOON_TEAR = registerBlockWithoutBlockItem("moon_tear",
+            () -> new MoonTear(BlockBehaviour.Properties.of(Material.STONE)
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS) // Используйте SoundEvent здесь
+                    .strength(3, 12)
+                    .requiresCorrectToolForDrops()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -1,0 +1,18 @@
+{
+  "moon_tear": {
+    "subtitle": "sounds.legends_lost_worlds.moon_tear",
+    "sounds": [
+      {
+        "name": "legends_lost_worlds:moon_tear"
+      }
+    ]
+  },
+  "moon_tear_break": {
+    "subtitle": "sounds.legends_lost_worlds.cristal_break",
+    "sounds": [
+      {
+        "name": "legends_lost_worlds:cristal_break"
+      }
+    ]
+  }
+}
