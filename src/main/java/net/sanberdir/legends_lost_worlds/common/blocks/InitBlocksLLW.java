@@ -29,9 +29,7 @@ public class InitBlocksLLW {
 
     public static final RegistryObject<Block> MOON_TEAR = registerBlockWithoutBlockItem("moon_tear",
             () -> new MoonTear(BlockBehaviour.Properties.of(Material.STONE)
-                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS) // Используйте SoundEvent здесь
-                    .strength(3, 12)
-                    .requiresCorrectToolForDrops()));
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).strength(3, 12).requiresCorrectToolForDrops()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

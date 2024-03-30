@@ -25,6 +25,8 @@ public class InitItemsLLW {
             () -> new ItemNameBlockItem(InitBlocksLLW.MOON_TEAR.get(),(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).rarity(Rarity.RARE))));
     public static final RegistryObject<Item> FOLIO_OF_THE_ELEMENTS = ITEMS.register("folio_of_the_elements",
             () -> new FolioOfTheElements(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).stacksTo(1)));
+    public static final RegistryObject<Item> SALIS_MIRACULA = ITEMS.register("salis_miracula",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).rarity(Rarity.UNCOMMON)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
