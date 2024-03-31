@@ -29,7 +29,14 @@ public class InitBlocksLLW {
 
     public static final RegistryObject<Block> MOON_TEAR = registerBlockWithoutBlockItem("moon_tear",
             () -> new MoonTear(BlockBehaviour.Properties.of(Material.STONE)
-                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).strength(3, 12).requiresCorrectToolForDrops()));
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
+                        return 0;
+                    }).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> MOON_TEAR_BLOCK = registerBlockWithoutBlockItem("moon_tear_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
+                        return 1;
+                    }).requiresCorrectToolForDrops()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

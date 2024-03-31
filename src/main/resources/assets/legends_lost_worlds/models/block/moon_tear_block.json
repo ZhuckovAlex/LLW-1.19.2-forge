@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "up": "legends_lost_worlds:block/moon_tear_block_top",
+    "down": "legends_lost_worlds:block/moon_tear_block_top",
+    "side": "legends_lost_worlds:block/moon_tear_block_side"
+  },"render_type": "cutout",
+  "emissive": true
+}

@@ -3,5 +3,8 @@
   "item.legends_lost_worlds.folio_of_the_elements": "Folio of the elements",
   "item.legends_lost_worlds.salis_miracula": "Salis miracula",
   "item.legends_lost_worlds.moon_tear": "Moon tear",
-  "block.legends_lost_worlds.moon_tear": "Moon tear"
+  "block.legends_lost_worlds.moon_tear": "Moon tear",
+  "block.legends_lost_worlds.moon_tear_block": "Moon tear block",
+  "item.legends_lost_worlds.moon_tear_block": "Moon tear block",
+  "item.legends_lost_worlds.ink_and_pen": "Writing materials"
 }

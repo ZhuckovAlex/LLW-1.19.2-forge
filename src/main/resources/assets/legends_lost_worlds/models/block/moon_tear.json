@@ -1,50 +1,7 @@
 {
-	"ambientocclusion": false,
-	"texture_size": [32, 32],
-	"textures": {
-		"2": "legends_lost_worlds:block/moon_tear",
-		"particle": "legends_lost_worlds:block/moon_tear"
-	},
-	"elements": [
-		{
-			"from": [1, 0, 8],
-			"to": [15, 23, 8],
-			"rotation": {"angle": -45, "axis": "y", "origin": [8, 9.5, 8]},
-			"faces": {
-				"north": {"uv": [0, 0, 7, 11.5], "texture": "#2"},
-				"east": {"uv": [0, 0, 0, 11.5], "texture": "#missing"},
-				"south": {"uv": [7, 0, 14, 11.5], "texture": "#2"},
-				"west": {"uv": [7, 0, 7, 11.5], "texture": "#missing"},
-				"up": {"uv": [7, 0, 0, 0], "texture": "#missing"},
-				"down": {"uv": [14, 0, 7, 0], "texture": "#missing"}
-			}
-		},
-		{
-			"from": [8, 0, 1],
-			"to": [8, 23, 15],
-			"rotation": {"angle": -45, "axis": "y", "origin": [8, 9.5, 8]},
-			"faces": {
-				"north": {"uv": [7, 0, 7, 11.5], "texture": "#missing"},
-				"east": {"uv": [0, 0, 7, 11.5], "texture": "#2"},
-				"south": {"uv": [14, 0, 14, 11.5], "texture": "#missing"},
-				"west": {"uv": [7, 0, 14, 11.5], "texture": "#2"},
-				"up": {"uv": [7, 0, 7, -7], "texture": "#missing"},
-				"down": {"uv": [7, -7, 7, 0], "texture": "#missing"}
-			}
-		}
-	],
-	"display": {
-		"head": {
-			"translation": [26.75, -33.25, 0],
-			"scale": [1.52, 1.52, 1.52]
-		}
-	},
-	"groups": [
-		{
-			"name": "moon_tear",
-			"origin": [8, 9.5, 8],
-			"color": 0,
-			"children": [0, 1]
-		}
-	], "render_type": "cutout"
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "legends_lost_worlds:block/moon_tear"
+  },"render_type": "cutout",
+  "emissive": true
 }
