@@ -24,6 +24,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sanberdir.legends_lost_worlds.common.blocks.InitBlocksLLW;
 import net.sanberdir.legends_lost_worlds.common.items.InitItemsLLW;
 import net.sanberdir.legends_lost_worlds.common.sounds.CustomSoundEvents;
+
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -45,6 +46,7 @@ public class LLW
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
         InitItemsLLW.register(modEventBus);
         InitBlocksLLW.register(modEventBus);
         // Register the Deferred Register to the mod event bus so blocks get registered
