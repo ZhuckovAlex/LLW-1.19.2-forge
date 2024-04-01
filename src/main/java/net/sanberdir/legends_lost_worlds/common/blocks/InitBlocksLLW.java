@@ -38,7 +38,7 @@ public class InitBlocksLLW {
     public static final RegistryObject<Block> CRYSTAL_FORMATION = registerBlockWithoutBlockItem("crystal_formation",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
-                        return 1;
+                        return 3;
                     }).requiresCorrectToolForDrops()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
