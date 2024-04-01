@@ -12,17 +12,23 @@ public class CustomSoundEvents {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, LLW.MOD_ID);
 
-    public static final RegistryObject<SoundEvent> MOON_TEAR =
-            registerSoundEvent("moon_tear");
+    public static final RegistryObject<SoundEvent> MOON_TEAR_PLACE =
+            registerSoundEvent("moon_tear_place");
+    public static final RegistryObject<SoundEvent> MOON_TEAR_HIT =
+            registerSoundEvent("moon_tear_hit");
+    public static final RegistryObject<SoundEvent> MOON_TEAR_FALL =
+            registerSoundEvent("moon_tear_fall");
+    public static final RegistryObject<SoundEvent> MOON_TEAR_STEP =
+            registerSoundEvent("moon_tear_step");
     public static final RegistryObject<SoundEvent> MOON_TEAR_BREAK =
             registerSoundEvent("moon_tear_break");
 
     public static final ForgeSoundType MOON_TEAR_SOUNDS = new ForgeSoundType(1f, 1f,
             CustomSoundEvents.MOON_TEAR_BREAK, //break
-            CustomSoundEvents.MOON_TEAR, //walk
-            CustomSoundEvents.MOON_TEAR, //place
-            CustomSoundEvents.MOON_TEAR, //hit
-            CustomSoundEvents.MOON_TEAR //walk
+            CustomSoundEvents.MOON_TEAR_STEP, //step
+            CustomSoundEvents.MOON_TEAR_PLACE, //place
+            CustomSoundEvents.MOON_TEAR_HIT, //hit
+            CustomSoundEvents.MOON_TEAR_FALL //walk
     );
 
 

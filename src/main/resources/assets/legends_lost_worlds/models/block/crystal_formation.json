@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "up": "legends_lost_worlds:block/crystal_formation_top",
+    "down": "legends_lost_worlds:block/crystal_formation_top",
+    "side": "legends_lost_worlds:block/crystal_formation_side"
+  }
+}

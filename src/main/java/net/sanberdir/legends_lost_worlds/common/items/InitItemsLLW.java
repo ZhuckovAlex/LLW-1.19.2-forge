@@ -21,10 +21,10 @@ public class InitItemsLLW {
             DeferredRegister.create(ForgeRegistries.ITEMS, LLW.MOD_ID);
 
 
-    public static final RegistryObject<Item> MOON_TEAR = ITEMS.register("moon_tear",
-            () -> new ItemNameBlockItem(InitBlocksLLW.MOON_TEAR.get(),(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).rarity(Rarity.RARE))));
-    public static final RegistryObject<Item> MOON_TEAR_BLOCK = ITEMS.register("moon_tear_block",
-            () -> new ItemNameBlockItem(InitBlocksLLW.MOON_TEAR_BLOCK.get(),(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE))));
+    public static final RegistryObject<Item> MOON_TEAR_ITEM = ITEMS.register("moon_tear_item",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> CRYSTAL_FORMATION = ITEMS.register("crystal_formation",
+            () -> new ItemNameBlockItem(InitBlocksLLW.CRYSTAL_FORMATION.get(),(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE))));
     public static final RegistryObject<Item> FOLIO_OF_THE_ELEMENTS = ITEMS.register("folio_of_the_elements",
             () -> new FolioOfTheElements(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).stacksTo(1)));
     public static final RegistryObject<Item> SALIS_MIRACULA = ITEMS.register("salis_miracula",

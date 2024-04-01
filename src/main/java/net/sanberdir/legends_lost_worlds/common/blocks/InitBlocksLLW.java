@@ -27,12 +27,15 @@ public class InitBlocksLLW {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, LLW.MOD_ID);
 
-    public static final RegistryObject<Block> MOON_TEAR = registerBlockWithoutBlockItem("moon_tear",
+    public static final RegistryObject<Block> MOON_TEAR = registerBlock("moon_tear",
             () -> new MoonTear(BlockBehaviour.Properties.of(Material.STONE)
                     .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
                         return 0;
-                    }).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> MOON_TEAR_BLOCK = registerBlockWithoutBlockItem("moon_tear_block",
+                    }).requiresCorrectToolForDrops()), ModCreativeTab.LLW_CREATIVE);
+    public static final RegistryObject<Block> CRYSTAL_CAVE_STONE = registerBlock("crystal_cave_stone",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .sound(SoundType.NETHER_GOLD_ORE).strength(1.7f, 3).requiresCorrectToolForDrops()), ModCreativeTab.LLW_CREATIVE);
+    public static final RegistryObject<Block> CRYSTAL_FORMATION = registerBlockWithoutBlockItem("crystal_formation",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
                         return 1;

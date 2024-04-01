@@ -20,11 +20,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class MoonTear extends RodBlock {
-    protected static final float AABB_MIN = 4.0F;
-    protected static final float AABB_MAX = 12.0F;
-    protected static final VoxelShape Y_AXIS_AABB = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
-    protected static final VoxelShape Z_AXIS_AABB = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 16.0D);
-    protected static final VoxelShape X_AXIS_AABB = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
+    protected static final float AABB_MIN = 2.0F;
+    protected static final float AABB_MAX = 14.0F;
+    protected static final VoxelShape Y_AXIS_AABB = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
+    protected static final VoxelShape Z_AXIS_AABB = Block.box(2.0D, 2.0D, 0.0D, 14.0D, 14.0D, 16.0D);
+    protected static final VoxelShape X_AXIS_AABB = Block.box(0.0D, 2.0D, 2.0D, 16.0D, 14.0D, 14.0D);
 
 
 

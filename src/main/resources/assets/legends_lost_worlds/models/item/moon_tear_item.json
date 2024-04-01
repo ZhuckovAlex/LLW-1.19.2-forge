@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "legends_lost_worlds:item/moon_tear"
+  }
+}
