@@ -30,7 +30,7 @@ public class InitBlocksLLW {
     public static final RegistryObject<Block> MOON_TEAR = registerBlock("moon_tear",
             () -> new MoonTear(BlockBehaviour.Properties.of(Material.STONE)
                     .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).randomTicks().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
-                        return 0;
+                        return 1;
                     }).requiresCorrectToolForDrops()), ModCreativeTab.LLW_CREATIVE);
     public static final RegistryObject<Block> CRYSTAL_CAVE_STONE = registerBlock("crystal_cave_stone",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
