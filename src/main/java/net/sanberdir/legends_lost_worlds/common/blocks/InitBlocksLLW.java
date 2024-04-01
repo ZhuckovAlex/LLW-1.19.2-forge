@@ -29,16 +29,16 @@ public class InitBlocksLLW {
 
     public static final RegistryObject<Block> MOON_TEAR = registerBlock("moon_tear",
             () -> new MoonTear(BlockBehaviour.Properties.of(Material.STONE)
-                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).randomTicks().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
-                        return 1;
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).randomTicks().strength(3, 12).lightLevel((p_50884_) -> {
+                        return 8;
                     }).requiresCorrectToolForDrops()), ModCreativeTab.LLW_CREATIVE);
     public static final RegistryObject<Block> CRYSTAL_CAVE_STONE = registerBlock("crystal_cave_stone",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .sound(SoundType.NETHER_GOLD_ORE).strength(1.7f, 3).requiresCorrectToolForDrops()), ModCreativeTab.LLW_CREATIVE);
     public static final RegistryObject<Block> CRYSTAL_FORMATION = registerBlockWithoutBlockItem("crystal_formation",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).strength(3, 12).lightLevel((p_50884_) -> {
-                        return 4;
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).strength(3, 12).lightLevel((p_50884_) -> {
+                        return 10;
                     }).requiresCorrectToolForDrops()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
