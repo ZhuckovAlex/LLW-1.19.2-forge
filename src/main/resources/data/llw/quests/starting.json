@@ -1,6 +1,6 @@
 {
   "id": "starting",
-  "texture": "legends_lost_worlds:folio_of_the_elements",
+  "texture": "llw:folio_of_the_elements",
   "parentId": null,
   "name": "quest.llw.starting",
   "description": "desc_quest.llw.starting",

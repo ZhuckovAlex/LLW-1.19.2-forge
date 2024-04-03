@@ -31,6 +31,8 @@ public class InitItemsLLW {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> INK_AND_PEN = ITEMS.register("ink_and_pen",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE)));
+    public static final RegistryObject<Item> FOCUSING_LENS = ITEMS.register("focusing_lens",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.LLW_CREATIVE)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
