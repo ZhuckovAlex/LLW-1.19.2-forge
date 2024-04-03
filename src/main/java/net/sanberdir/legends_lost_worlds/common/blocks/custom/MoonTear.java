@@ -23,6 +23,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sanberdir.legends_lost_worlds.common.blocks.InitBlocksLLW;
+import org.jetbrains.annotations.NotNull;
 
 public class MoonTear extends RodBlock {
     protected static final float AABB_MIN = 2.0F;
@@ -33,7 +34,7 @@ public class MoonTear extends RodBlock {
 
 
 
-    public VoxelShape getShape(BlockState p_154346_, BlockGetter p_154347_, BlockPos p_154348_, CollisionContext p_154349_) {
+    public @NotNull VoxelShape getShape(BlockState p_154346_, BlockGetter p_154347_, BlockPos p_154348_, CollisionContext p_154349_) {
         switch (p_154346_.getValue(FACING).getAxis()) {
             case X:
             default:
@@ -88,8 +89,7 @@ public class MoonTear extends RodBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_53105_) {
         p_53105_.add(FACING);
     }
-
-    public PushReaction getPistonPushReaction(BlockState p_53112_) {
+    public @NotNull PushReaction getPistonPushReaction(BlockState p_53112_) {
         return PushReaction.NORMAL;
     }
 }

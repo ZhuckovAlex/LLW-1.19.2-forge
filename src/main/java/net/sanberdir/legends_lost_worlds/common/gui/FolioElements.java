@@ -6,7 +6,9 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.sanberdir.legends_lost_worlds.LLW;
-import net.sanberdir.legends_lost_worlds.common.quest.Quests;
+import net.sanberdir.legends_lost_worlds.common.quest.Quest;
+import net.sanberdir.legends_lost_worlds.common.quest.QuestLoader;
+import net.sanberdir.legends_lost_worlds.common.quest.QuestRender;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +20,11 @@ public class FolioElements extends Screen {
     // Window
     public static final int WINDOW_WIDTH = 256;
     public static final int WINDOW_HEIGHT = 230;
-    public static int screenCenterX, screenCenterY;
+    private int screenCenterX, screenCenterY;
     private int textureX, textureY;
+    private double scale;
     // Quests
-    private static final List<Quests> quests = new ArrayList<>();
+    public static List<Quest> quests = new ArrayList<>();
     public FolioElements(Component component) {
         super(component);
     }
@@ -32,32 +35,24 @@ public class FolioElements extends Screen {
     }
     @Override
     protected void init() {
-        initQuests();
-
         screenCenterX = (this.width - WINDOW_WIDTH) / 2;
         screenCenterY = (this.height - WINDOW_HEIGHT) / 2;
+
+        scale = minecraft.getWindow().getGuiScale();
+
+        QuestLoader.loadQuests();
         super.init();
     }
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float delta) {
         super.render(poseStack, mouseX, mouseY, delta);
-
         this.renderBackground(poseStack);
 
-        // the calculation of scissor
-        assert minecraft != null;
-        double scale = minecraft.getWindow().getGuiScale();
-        int scissorX = (int) (screenCenterX * scale);
-        int scissorY = (int) (minecraft.getWindow().getScreenHeight() - (screenCenterY + WINDOW_HEIGHT) * scale);
-        int scissorWidth = (int) (WINDOW_WIDTH * scale);
-        int scissorHeight = (int) (WINDOW_HEIGHT * scale);
-
-
         // Renders
-        renderInside(poseStack, scissorX, scissorY, scissorWidth, scissorHeight);
+        renderInside(poseStack);
 
-        for (Quests quests1: quests){
-            quests1.renderQuest(poseStack, screenCenterX, screenCenterY, textureX, textureY, scissorX, scissorY, scissorWidth, scissorHeight);
+        for (Quest quest: quests){
+            new QuestRender(quest, poseStack, getScissorX(224), getScissorY(194), getScissorWidth(224), getScissorHeight(194), screenCenterX, screenCenterY, textureX, textureY);
         }
 
         renderWindow(poseStack);
@@ -69,9 +64,9 @@ public class FolioElements extends Screen {
         blit(poseStack, screenCenterX, screenCenterY, 0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
         RenderSystem.disableBlend();
     }
-    private void renderInside(PoseStack poseStack, int scissorX, int scissorY, int scissorWidth, int scissorHeight)
+    private void renderInside(PoseStack poseStack)
     {
-        RenderSystem.enableScissor(scissorX, scissorY, scissorWidth, scissorHeight);
+        RenderSystem.enableScissor(getScissorX(WINDOW_WIDTH), getScissorY(WINDOW_HEIGHT), getScissorWidth(WINDOW_WIDTH), getScissorHeight(WINDOW_HEIGHT));
         RenderSystem.setShaderTexture(0, INSIDE_TEXTURE);
         blit(poseStack, (screenCenterX - WINDOW_WIDTH) + textureX, (screenCenterY - WINDOW_HEIGHT) + textureY, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_WIDTH * 3, WINDOW_HEIGHT * 3);
         RenderSystem.disableScissor();
@@ -89,12 +84,24 @@ public class FolioElements extends Screen {
 
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
     }
-    private void initQuests()
+
+    private int getScissorX(int WINDOW_WIDTH)
     {
-        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/folio_of_the_elements.png"), 0,0));
-        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), 0,+40));
-        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), 0,-40));
-        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), +40,0));
-        quests.add(new Quests(new ResourceLocation(LLW.MOD_ID, "textures/quest/focusing_lens.png"), -40,0));
+        return (int) (((this.width - WINDOW_WIDTH) / 2) * scale);
+    }
+
+    private int getScissorY(int WINDOW_HEIGHT)
+    {
+        return (int) (minecraft.getWindow().getScreenHeight() - (((this.height - WINDOW_HEIGHT) / 2) + WINDOW_HEIGHT) * scale);
+    }
+
+    private int getScissorWidth(int WINDOW_WIDTH)
+    {
+        return (int) (WINDOW_WIDTH * scale);
+    }
+
+    private int getScissorHeight(int WINDOW_HEIGHT)
+    {
+        return (int) (WINDOW_HEIGHT * scale);
     }
 }
