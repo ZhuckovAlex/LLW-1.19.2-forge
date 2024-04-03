@@ -1,7 +1,7 @@
 {
   "values": [
-    "legends_lost_worlds:moon_tear",
-    "legends_lost_worlds:crystal_cave_stone",
-    "legends_lost_worlds:crystal_formation"
+    "llw:moon_tear",
+    "llw:crystal_cave_stone",
+    "llw:crystal_formation"
   ]
 }

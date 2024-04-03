@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "legends_lost_worlds:block/moon_tear"
+    "cross": "llw:block/moon_tear"
   },"render_type": "cutout",
   "emissive": true
 }

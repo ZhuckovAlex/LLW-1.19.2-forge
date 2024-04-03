@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "legends_lost_worlds:block/crystal_cave_stone"
+    "all": "llw:block/crystal_cave_stone"
   }
 }

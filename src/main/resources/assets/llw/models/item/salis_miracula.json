@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "legends_lost_worlds:item/folio_of_the_elements"
+    "layer0": "llw:item/salis_miracula"
   }
 }

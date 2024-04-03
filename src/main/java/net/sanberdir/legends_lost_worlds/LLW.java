@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 public class LLW
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "legends_lost_worlds";
+    public static final String MOD_ID = "llw";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace

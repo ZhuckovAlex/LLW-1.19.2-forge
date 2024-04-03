@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "legends_lost_worlds:item/ink_and_pen"
+    "layer0": "llw:item/ink_and_pen"
   }
 }

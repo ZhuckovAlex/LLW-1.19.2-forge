@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "legends_lost_worlds:item/moon_tear"
+    "layer0": "llw:item/folio_of_the_elements"
   }
 }

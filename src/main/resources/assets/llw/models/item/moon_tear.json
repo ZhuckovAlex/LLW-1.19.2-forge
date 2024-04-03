@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "legends_lost_worlds:item/salis_miracula"
+    "layer0": "llw:item/moon_tear"
   }
 }
