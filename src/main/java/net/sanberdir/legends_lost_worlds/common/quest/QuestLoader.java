@@ -17,7 +17,12 @@ public class QuestLoader {
         for (String quest_path: quests_path) {
             try (InputStream questStream = QuestLoader.class.getClassLoader().getResourceAsStream(quest_path)) {
                 Quest quest = gson.fromJson(new InputStreamReader(questStream, StandardCharsets.UTF_8), Quest.class);
-                FolioElements.quests.add(quest);
+                if (quest.getId().equals(FileManager.extractFileNameWithoutExtension(quest_path))) {
+                    FolioElements.quests.add(quest);
+                }
+                else {
+                    LLW.LOGGER.warn("Error mismatch of id and name in the file: " + quest_path);
+                }
             } catch (Exception e) {
                 LLW.LOGGER.error("Ошибка при загрузке квеста: {}", quest_path, e);
             }

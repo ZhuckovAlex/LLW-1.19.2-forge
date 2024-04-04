@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sanberdir.legends_lost_worlds.LLW;
 import net.sanberdir.legends_lost_worlds.common.gui.FolioElements;
-import org.stringtemplate.v4.ST;
 
 public class QuestRender {
     public QuestRender(Quest quest, PoseStack poseStack, int scissorX, int scissorY, int scissorWidth, int scissorHeight, int screenCenterX, int screenCenterY, int textureX, int textureY) {

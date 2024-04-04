@@ -1,11 +1,12 @@
 {
-  "id": "alphabet_elements",
+  "id": "test",
   "texture": "llw:focusing_lens",
+  "type": "",
   "parentId": "starting",
   "name": "quest.llw.alphabet_elements",
   "description": "desc_quest.llw.alphabet_elements",
   "position": {
-    "x": 0,
-    "y": -40
+    "x": 50,
+    "y": -20
   }
 }

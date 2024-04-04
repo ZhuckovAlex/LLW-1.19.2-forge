@@ -1,7 +1,7 @@
 {
   "id": "magic_creatures",
   "texture": "llw:focusing_lens",
-  "parentId": null,
+  "parentId": "starting",
   "name": "quest.llw.magic_creatures",
   "description": "desc_quest.llw.magic_creatures",
   "position": {

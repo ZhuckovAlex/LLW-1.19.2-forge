@@ -1,8 +1,9 @@
 package net.sanberdir.legends_lost_worlds.common.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.sanberdir.legends_lost_worlds.LLW;
@@ -52,11 +53,50 @@ public class FolioElements extends Screen {
         renderInside(poseStack);
 
         for (Quest quest: quests){
+            if (quest.getParentId() != null) {
+                Quest parentQuest = findQuestById(quest.getParentId());
+                drawThickLine(poseStack, parentQuest.getPosition().getX() + ((screenCenterX + (float) FolioElements.WINDOW_WIDTH / 2)) + textureX, parentQuest.getPosition().getY() + ((screenCenterY + (float) FolioElements.WINDOW_HEIGHT / 2)) + textureY,
+                        quest.getPosition().getX() + ((screenCenterX + (float) FolioElements.WINDOW_WIDTH / 2)) + textureX, quest.getPosition().getY() + ((screenCenterY + (float) FolioElements.WINDOW_HEIGHT / 2)) + textureY, 1.5f, 0.8f,0.8f,0.8f,1.0f);
+            }
             new QuestRender(quest, poseStack, getScissorX(224), getScissorY(194), getScissorWidth(224), getScissorHeight(194), screenCenterX, screenCenterY, textureX, textureY);
         }
 
         renderWindow(poseStack);
     }
+
+    public void drawThickLine(PoseStack matrixStack, float startX, float startY, float endX, float endY, float thickness, float r, float g, float b, float alpha) {
+        RenderSystem.enableBlend();
+        RenderSystem.disableTexture();
+        RenderSystem.defaultBlendFunc();
+        RenderSystem.enableScissor(getScissorX(WINDOW_WIDTH), getScissorY(WINDOW_HEIGHT), getScissorWidth(WINDOW_WIDTH), getScissorHeight(WINDOW_HEIGHT));
+
+        RenderSystem.setShader(GameRenderer::getPositionColorShader);
+
+        float dx = endX - startX;
+        float dy = endY - startY;
+        float perpX = -dy;
+        float perpY = dx;
+        float length = (float) Math.sqrt(perpX * perpX + perpY * perpY);
+        perpX /= length;
+        perpY /= length;
+        perpX *= thickness / 2;
+        perpY *= thickness / 2;
+
+        Tesselator tesselator = Tesselator.getInstance();
+        BufferBuilder bufferBuilder = tesselator.getBuilder();
+        bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
+        bufferBuilder.vertex(matrixStack.last().pose(), startX - perpX, startY - perpY, 0.0F).color(r, g, b, alpha).endVertex();
+        bufferBuilder.vertex(matrixStack.last().pose(), startX + perpX, startY + perpY, 0.0F).color(r, g, b, alpha).endVertex();
+        bufferBuilder.vertex(matrixStack.last().pose(), endX + perpX, endY + perpY, 0.0F).color(r, g, b, alpha).endVertex();
+        bufferBuilder.vertex(matrixStack.last().pose(), endX - perpX, endY - perpY, 0.0F).color(r, g, b, alpha).endVertex();
+        tesselator.end();
+
+        RenderSystem.enableTexture();
+        RenderSystem.disableBlend();
+        RenderSystem.disableScissor();
+    }
+
+
     private void renderWindow(PoseStack poseStack)
     {
         RenderSystem.enableBlend();
@@ -103,5 +143,13 @@ public class FolioElements extends Screen {
     private int getScissorHeight(int WINDOW_HEIGHT)
     {
         return (int) (WINDOW_HEIGHT * scale);
+    }
+    private Quest findQuestById(String questId) {
+        for (Quest quest : FolioElements.quests) {
+            if (quest.getId().equals(questId)) {
+                return quest;
+            }
+        }
+        return null;
     }
 }

@@ -5,10 +5,7 @@ import net.sanberdir.legends_lost_worlds.LLW;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.*;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,5 +42,14 @@ public class FileManager {
                         .collect(Collectors.toList());
             }
         }
+    }
+
+    public static String extractFileNameWithoutExtension(String fullPath) {
+        String fileName = Paths.get(fullPath).getFileName().toString(); // Извлекаем имя файла: "alphabet_elements.json"
+        int dotIndex = fileName.lastIndexOf('.'); // Находим позицию последней точки
+        if (dotIndex > 0) { // Убеждаемся, что точка присутствует, чтобы избежать StringIndexOutOfBoundsException
+            fileName = fileName.substring(0, dotIndex); // Обрезаем строку до точки, получаем "alphabet_elements"
+        }
+        return fileName;
     }
 }
