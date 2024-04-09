@@ -22,6 +22,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.sanberdir.llw.common.blocks.LLWBlocks;
 import net.sanberdir.llw.common.items.LLWItems;
 import net.sanberdir.llw.client.ModCreativeLLWTabs;
+import net.sanberdir.llw.common.sounds.CustomSoundEvents;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -59,6 +60,7 @@ public class LLW
         ModCreativeLLWTabs.register(modEventBus);
         LLWItems.register(modEventBus);
         LLWBlocks.register(modEventBus);
+        CustomSoundEvents.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 

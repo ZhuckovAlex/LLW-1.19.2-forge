@@ -26,6 +26,7 @@ public class ModCreativeLLWTabs {
                         pOutput.accept(LLWItems.MOON_TEAR_ITEM.get());
                         pOutput.accept(LLWItems.CRYSTAL_FORMATION.get());
                         pOutput.accept(LLWBlocks.CRYSTAL_CAVE_STONE.get());
+                        pOutput.accept(LLWBlocks.MOON_TEAR.get());
                     })
                     .build());
 

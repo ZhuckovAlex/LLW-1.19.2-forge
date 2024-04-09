@@ -12,18 +12,24 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sanberdir.llw.LLW;
+import net.sanberdir.llw.common.blocks.custom.MoonTear;
 import net.sanberdir.llw.common.items.LLWItems;
+import net.sanberdir.llw.common.sounds.CustomSoundEvents;
 
 import java.util.function.Supplier;
 
 public class LLWBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, LLW.MOD_ID);
-
+    public static final RegistryObject<Block> MOON_TEAR = registerBlock("moon_tear",
+            () -> new MoonTear(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).randomTicks().strength(3, 12).lightLevel((p_50884_) -> {
+                        return 8;
+                    }).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CRYSTAL_FORMATION = BLOCKS.register("crystal_formation",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops().strength(1.5F, 6.0F)
-                    .sound(SoundType.STONE).strength(3, 12).lightLevel((p_50884_) -> {
+                    .sound(CustomSoundEvents.MOON_TEAR_SOUNDS).strength(3, 12).lightLevel((p_50884_) -> {
                         return 10;
                     }).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CRYSTAL_CAVE_STONE = registerBlock("crystal_cave_stone",
