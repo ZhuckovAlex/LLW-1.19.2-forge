@@ -1,6 +1,7 @@
-package net.sanberdir.legends_lost_worlds.common.utils;
+package net.sanberdir.llw.common.utils;
 
-import net.sanberdir.legends_lost_worlds.LLW;
+
+import net.sanberdir.llw.LLW;
 
 import java.io.IOException;
 import java.net.URI;

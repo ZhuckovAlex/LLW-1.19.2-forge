@@ -1,9 +1,9 @@
-package net.sanberdir.legends_lost_worlds.common.quest;
+package net.sanberdir.llw.common.quest;
 
 import com.google.gson.Gson;
-import net.sanberdir.legends_lost_worlds.LLW;
-import net.sanberdir.legends_lost_worlds.common.gui.FolioElements;
-import net.sanberdir.legends_lost_worlds.common.utils.FileManager;
+import net.sanberdir.llw.LLW;
+import net.sanberdir.llw.common.gui.FolioElements;
+import net.sanberdir.llw.common.utils.FileManager;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

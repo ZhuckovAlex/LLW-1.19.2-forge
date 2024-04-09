@@ -1,4 +1,4 @@
-package net.sanberdir.legends_lost_worlds.common.quest;
+package net.sanberdir.llw.common.quest;
 public class Quest {
     private String id;
     public String getId() {
