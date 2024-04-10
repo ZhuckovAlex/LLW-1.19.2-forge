@@ -22,8 +22,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.sanberdir.llw.common.blocks.LLWBlocks;
 import net.sanberdir.llw.common.items.LLWItems;
 import net.sanberdir.llw.client.ModCreativeLLWTabs;
-import net.sanberdir.llw.common.sounds.CustomSoundEvents;
+import net.sanberdir.llw.common.sounds.ModSoundsLLW;
+import net.sanberdir.llw.common.worldgen.biome.ModTerrablender;
+import net.sanberdir.llw.common.worldgen.biome.surface.ModSurfaceRules;
 import org.slf4j.Logger;
+import terrablender.api.SurfaceRuleManager;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(LLW.MOD_ID)
@@ -60,10 +63,10 @@ public class LLW
         ModCreativeLLWTabs.register(modEventBus);
         LLWItems.register(modEventBus);
         LLWBlocks.register(modEventBus);
-        CustomSoundEvents.register(modEventBus);
+        ModSoundsLLW.register(modEventBus);
+        ModTerrablender.registerBiomes();
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -73,7 +76,10 @@ public class LLW
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        event.enqueueWork(() -> {
 
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+        });
     }
 
     // Add the example block item to the building blocks tab

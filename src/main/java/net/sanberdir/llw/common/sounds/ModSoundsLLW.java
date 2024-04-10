@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.sanberdir.llw.LLW;
 
-public class CustomSoundEvents {
+public class ModSoundsLLW {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, LLW.MOD_ID);
 
@@ -25,8 +25,8 @@ public class CustomSoundEvents {
             registerSoundEvents("moon_tear_break");
 
     public static final ForgeSoundType MOON_TEAR_SOUNDS = new ForgeSoundType(1f, 1f,
-            CustomSoundEvents.MOON_TEAR_BREAK, CustomSoundEvents.MOON_TEAR_STEP, CustomSoundEvents.MOON_TEAR_PLACE,
-            CustomSoundEvents.MOON_TEAR_HIT, CustomSoundEvents.MOON_TEAR_FALL);
+            ModSoundsLLW.MOON_TEAR_BREAK, ModSoundsLLW.MOON_TEAR_STEP, ModSoundsLLW.MOON_TEAR_PLACE,
+            ModSoundsLLW.MOON_TEAR_HIT, ModSoundsLLW.MOON_TEAR_FALL);
 
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {

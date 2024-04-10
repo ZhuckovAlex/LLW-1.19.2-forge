@@ -1,0 +1,26 @@
+{
+  "name": "llw:crystal_2/start_pool",
+
+  "fallback": "minecraft:empty",
+
+
+  "elements": [
+    {
+
+      "weight": 75,
+      "element": {
+
+
+        "location": "llw:crystal_2",
+
+        "processors": "minecraft:empty",
+
+
+        "projection": "rigid",
+
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
