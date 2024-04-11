@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "llw:crystal_cave_bricks"
+  },
+  "result": "llw:crystal_cave_bricks_slab"
+}

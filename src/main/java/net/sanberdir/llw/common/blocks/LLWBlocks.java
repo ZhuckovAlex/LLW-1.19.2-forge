@@ -3,7 +3,9 @@ package net.sanberdir.llw.common.blocks;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -34,6 +36,15 @@ public class LLWBlocks {
                     }).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CRYSTAL_CAVE_STONE = registerBlock("crystal_cave_stone",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
+                    .sound(SoundType.NETHER_GOLD_ORE).strength(1.7f, 3).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CRYSTAL_CAVE_BRICKS = registerBlock("crystal_cave_bricks",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
+                    .sound(SoundType.NETHER_GOLD_ORE).strength(1.7f, 3).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CRYSTAL_CAVE_BRICKS_SLAB = registerBlock("crystal_cave_bricks_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
+                    .sound(SoundType.NETHER_GOLD_ORE).strength(1.7f, 3).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CRYSTAL_CAVE_BRICKS_STAIRS = registerBlock("crystal_cave_bricks_stairs",
+            () -> new StairBlock(LLWBlocks.CRYSTAL_CAVE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
                     .sound(SoundType.NETHER_GOLD_ORE).strength(1.7f, 3).requiresCorrectToolForDrops()));
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

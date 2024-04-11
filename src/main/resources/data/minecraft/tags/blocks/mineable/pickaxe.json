@@ -1,6 +1,9 @@
 {
   "values": [
     "llw:crystal_cave_stone",
+    "llw:crystal_cave_bricks",
+    "llw:crystal_cave_bricks_slab",
+    "llw:crystal_cave_bricks_stairs",
     "llw:crystal_formation",
     "llw:moon_tear"
   ]

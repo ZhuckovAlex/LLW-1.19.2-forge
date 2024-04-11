@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "llw:block/crystal_cave_bricks",
+    "side": "llw:block/crystal_cave_bricks",
+    "top": "llw:block/crystal_cave_bricks"
+  }
+}
