@@ -4,7 +4,7 @@
   "experience": 3.0,
   "group": "iron_ingot",
   "ingredient": {
-    "item": "legends_lost_worlds:moon_tear_item"
+    "item": "llw:moon_tear_item"
   },
-  "result": "legends_lost_worlds:salis_miracula"
+  "result": "llw:salis_miracula"
 }
